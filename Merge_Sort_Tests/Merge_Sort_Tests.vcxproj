@@ -155,6 +155,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Merge_Sort_Tests.cpp" />
+    <ClCompile Include="src\merge_sort.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\merge_sort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
