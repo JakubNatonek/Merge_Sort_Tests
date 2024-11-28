@@ -10,6 +10,19 @@ merge_sort::~merge_sort() {
     
 }
 
+std::tuple<int*, int> merge_sort::_merge_arrays(int* array_left, int size_array_left, int* array_right, int size_array_right) {
+    int* new_array = new int[size_array_left + size_array_right];
+
+    for( int index = 0; index < size_array_left; index++ ) {
+        new_array[index] = array_left[index];
+    }
+
+    for( int index = size_array_left; index < size_array_left + size_array_right; index++ ) {
+        new_array[index] = array_left[index];
+    }
+    
+    return {new_array, size_array_left + size_array_right};
+}
 
 
 std::tuple<int*, int> merge_sort::sort( int array_to_sort[], int size_array_to_sort ) {
