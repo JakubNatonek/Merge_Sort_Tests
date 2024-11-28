@@ -1,6 +1,6 @@
 ﻿#include "merge_sort.h"
 
-#include <ios>
+#include <tuple>
 
 merge_sort::merge_sort() {
     
@@ -10,25 +10,28 @@ merge_sort::~merge_sort() {
     
 }
 
-int* merge_sort::sort( int tab[], int size ) {
-    int size_left_side = size/2;
-    int size_right_side = size/2;
+
+
+std::tuple<int*, int> merge_sort::sort( int array_to_sort[], int size_array_to_sort ) {
+    int size_array_left = size_array_to_sort / 2;
+    int size_array_right = size_array_to_sort / 2;
     
-    if( size % 2 == 1 ) {
-        size_left_side = size_left_side + 1;
+    if( size_array_to_sort % 2 == 1 ) {
+        size_array_left = size_array_left + 1;
     }
     
-    int* left_side = new int[size_left_side];
-    int* right_side = new int[size_right_side];
-    for( int i = 0; i < size; i++ ) {
-        if( i < size_left_side ) {
-            left_side[i] = tab[i];
+    int* array_left = new int[size_array_left];
+    int* array_right = new int[size_array_right];
+    
+    for( int index = 0; index < size_array_to_sort; index++ ) {
+        if( index < size_array_left ) {
+            array_left[index] = array_to_sort[index];
         }
         else {
-            right_side[ (i - size_left_side)] = tab[i];
+            array_right[(index - size_array_left)] = array_to_sort[index];
         }
     }
     // delete[] right_side;
-    // delete[] left_side;
-    return right_side;
+    // delete[] array_left;
+    return {array_right, size_array_right};
 }

@@ -5,10 +5,10 @@ int main(int argc, char* argv[]) {
     int array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     
     merge_sort sorter = merge_sort();
-    int* tav = sorter.sort(array, 10);
-    for ( int i = 0; i < 5; i++) {
-        std::cout << tav[i] << " ";
+    auto[tab, size_tab] = sorter.sort(array, 10);
+    for ( int i = 0; i < size_tab; i++) {
+        std::cout << tab[i] << " ";
     }
-    delete[] tav;
+    delete[] tab;
     return 0;
 }
