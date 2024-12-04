@@ -52,6 +52,9 @@ std::tuple<int*, int> merge_sort::sort( int* array_to_sort, int size_array_to_so
             }
             return {array_to_sort, size_array_to_sort};
         }
+        else {
+            return {array_to_sort, size_array_to_sort};
+        }
     }
     
     int size_array_left = size_array_to_sort / 2;
