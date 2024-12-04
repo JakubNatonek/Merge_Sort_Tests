@@ -3,20 +3,36 @@
 #include <tuple>
 #include <iostream>
 
+/** * @brief Konstruktor domyślny. */
 merge_sort::merge_sort() {
     
 }
 
+/** * @brief Destruktor. */
 merge_sort::~merge_sort() {
     
 }
 
+/** 
+* @brief Scalanie dwóch krotek zawierających tablice. 
+* @param left Krotka zawierająca wskaźnik na pierwszą tablicę oraz jej rozmiar. 
+* @param right Krotka zawierająca wskaźnik na drugą tablicę oraz jej rozmiar. 
+* @return std::tuple<int*, int> Krotka zawierająca wskaźnik na scaloną tablicę oraz jej rozmiar. 
+*/
 std::tuple<int*, int> merge_sort::_merge_arrays( std::tuple<int*, int> left, std::tuple<int*, int> right ) {
     auto [array_left, size_array_left] = left;
     auto [array_right, size_array_right] = right;
     return  this->_merge_arrays(array_left, size_array_left, array_right, size_array_right);
 }
 
+/** 
+* @brief Scalanie dwóch tablic.  
+* @param array_left Wskaźnik na pierwszą tablicę. 
+* @param size_array_left Rozmiar pierwszej tablicy. 
+* @param array_right Wskaźnik na drugą tablicę. 
+* @param size_array_right Rozmiar drugiej tablicy. 
+* @return std::tuple<int*, int> Krotka zawierająca wskaźnik na scaloną tablicę oraz jej rozmiar. 
+*/
 std::tuple<int*, int> merge_sort::_merge_arrays(int* array_left, int size_array_left, int* array_right, int size_array_right) {
     int* new_array = new int[size_array_left + size_array_right];
    
@@ -38,7 +54,12 @@ std::tuple<int*, int> merge_sort::_merge_arrays(int* array_left, int size_array_
     return {new_array, size_array_left + size_array_right};
 }
 
-
+/** 
+* @brief Sortowanie tablicy metodą sortowania przez scalanie.
+* @param array_to_sort Wskaźnik na tablicę do posortowania. 
+* @param size_array_to_sort Rozmiar tablicy. 
+* @return std::tuple<int*, int> Krotka zawierająca wskaźnik na posortowaną tablicę oraz jej rozmiar. 
+*/
 std::tuple<int*, int> merge_sort::sort( int* array_to_sort, int size_array_to_sort ) {
     if (size_array_to_sort <= 2) {
         if( size_array_to_sort == 1 ) {
